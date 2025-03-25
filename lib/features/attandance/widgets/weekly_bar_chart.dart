@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:vision/core/theme/colors.dart';
 
 class WeeklyBarChart extends StatelessWidget {
@@ -8,39 +9,74 @@ class WeeklyBarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final data = [8.0, 7.5, 0.0, 9.0, 8.2, 6.0, 7.0];
-    final labels = ['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'];
+    final labels = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
     return Animate(
-      effects: const [FadeEffect(duration: Duration(milliseconds: 600))],
+      effects: const [FadeEffect(), SlideEffect(begin: Offset(0, 0.05))],
       child: Container(
-        height: 220,
+        height: 260,
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
+          gradient: LinearGradient(
+            colors: isDark
+                ? [const Color(0xFF1E1E2E), const Color(0xFF2C2C3A)]
+                : [Colors.blue.shade50, Colors.blue.shade100],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
             BoxShadow(
-              color: AppColors.shadow,
-              blurRadius: 8,
-              offset: Offset(0, 4),
+              color: isDark
+                  ? Colors.black.withOpacity(0.3)
+                  : Colors.blue.withOpacity(0.1),
+              blurRadius: 16,
+              offset: const Offset(0, 6),
             ),
           ],
         ),
-        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Oxirgi 7 kunlik davomad",
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                )),
-            const SizedBox(height: 12),
+            Text(
+              "weekly_attendance".tr(),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: isDark ? Colors.white : Colors.black,
+              ),
+            ),
+            const SizedBox(height: 16),
             Expanded(
               child: BarChart(
                 BarChartData(
                   alignment: BarChartAlignment.spaceAround,
                   maxY: 10,
-                  barTouchData: BarTouchData(enabled: true),
+                  gridData: FlGridData(show: false),
+                  barTouchData: BarTouchData(
+                    enabled: true,
+                    touchTooltipData:BarTouchTooltipData(
+                      tooltipRoundedRadius: 12,
+                      tooltipPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      tooltipMargin: 8,
+                      tooltipBorder: BorderSide.none,
+                      getTooltipColor: (group) =>
+                      isDark ? Colors.grey.shade800 : Colors.blueAccent, // <-- faqat Color qaytadi
+                      getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                        final day = labels[group.x];
+                        return BarTooltipItem(
+                          "${day.tr()}: ${rod.toY.toStringAsFixed(1)} soat",
+                          const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        );
+                      },
+                    ),
+
+
+                  ),
                   titlesData: FlTitlesData(
                     leftTitles: const AxisTitles(
                       sideTitles: SideTitles(showTitles: false),
@@ -48,28 +84,52 @@ class WeeklyBarChart extends StatelessWidget {
                     bottomTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: true,
-                        getTitlesWidget: (value, _) => Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: Text(
-                            labels[value.toInt()],
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ),
+                        getTitlesWidget: (value, _) {
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: Text(
+                              labels[value.toInt()].tr(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall
+                                  ?.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: isDark
+                                    ? Colors.white70
+                                    : Colors.grey.shade700,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
                   borderData: FlBorderData(show: false),
-                  barGroups: List.generate(7, (index) {
+                  barGroups: List.generate(data.length, (index) {
+                    final value = data[index];
                     return BarChartGroupData(
                       x: index,
                       barRods: [
                         BarChartRodData(
-                          toY: data[index],
-                          color: data[index] == 0.0
-                              ? AppColors.red
-                              : AppColors.green,
+                          toY: value,
                           width: 18,
-                          borderRadius: BorderRadius.circular(6),
+                          borderRadius: BorderRadius.circular(8),
+                          rodStackItems: [],
+                          color: value == 0
+                              ? (isDark
+                              ? Colors.red.shade900.withOpacity(0.3)
+                              : Colors.red.withOpacity(0.2))
+                              : null,
+                          gradient: value != 0
+                              ? LinearGradient(
+                            colors: [
+                              Colors.green.shade400,
+                              Colors.lightGreen.shade200,
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          )
+                              : null,
                         ),
                       ],
                     );

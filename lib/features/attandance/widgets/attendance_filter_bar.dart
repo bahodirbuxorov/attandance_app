@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AttendanceFilterBar extends StatelessWidget {
   final String selected;
@@ -8,7 +9,12 @@ class AttendanceFilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final filters = ['Bugun', 'Bu hafta', 'Bu oy', 'Hammasi'];
+    final filters = [
+      'today'.tr(),
+      'this_week'.tr(),
+      'this_month'.tr(),
+      'all'.tr(),
+    ];
 
     return SizedBox(
       height: 42,

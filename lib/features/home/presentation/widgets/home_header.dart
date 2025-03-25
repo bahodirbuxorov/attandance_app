@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -22,9 +23,9 @@ class HomeHeader extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 )),
             const Gap(2),
-            Text('Bosh hisobchi',
+            Text('position'.tr(),
                 style: Theme.of(context).textTheme.bodyMedium),
-            Text('Toshkent viloyati',
+            Text('region'.tr(),
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Theme.of(context).hintColor,
                 )),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../core/theme/colors.dart';
 
@@ -25,8 +26,8 @@ class ProfileHeader extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 )),
             const Gap(4),
-            Text("Bosh hisobchi", style: TextStyle(color: AppColors.textGrey)),
-            Text("Toshkent viloyati",
+            Text("position".tr(), style: TextStyle(color: AppColors.textGrey)),
+            Text("region".tr(),
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Theme.of(context).hintColor,
                 )),

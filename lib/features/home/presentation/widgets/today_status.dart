@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:iconly/iconly.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class TodayStatusCard extends StatelessWidget {
   const TodayStatusCard({super.key});
@@ -20,11 +21,11 @@ class TodayStatusCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Bugungi holat",
+                Text('today_status'.tr(),
                     style: Theme.of(context).textTheme.titleMedium),
                 const Gap(4),
                 Text(
-                  "08:57 da ishga keldingiz\nChiqish belgilanmagan",
+                  '${'checked_in_time'.tr()}\n${'not_checked_out'.tr()}',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],

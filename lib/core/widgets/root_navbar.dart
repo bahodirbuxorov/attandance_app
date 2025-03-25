@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../features/attandance/presentation/attendance_page.dart';
 import '../../features/home/presentation/home_page.dart';
@@ -21,32 +22,30 @@ class _RootNavbarState extends State<RootNavbar> {
     ProfilePage(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
         onTap: (index) => setState(() => _currentIndex = index),
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(IconlyLight.home),
-            activeIcon: Icon(IconlyBold.home),
-            label: 'Asosiy',
+            icon: const Icon(IconlyLight.home),
+            activeIcon: const Icon(IconlyBold.home),
+            label: 'home'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(IconlyLight.calendar),
-            activeIcon: Icon(IconlyBold.calendar),
-            label: 'Davomat',
+            icon: const Icon(IconlyLight.calendar),
+            activeIcon: const Icon(IconlyBold.calendar),
+            label: 'attendance'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(IconlyLight.profile),
-            activeIcon: Icon(IconlyBold.profile),
-            label: 'Profil',
+            icon: const Icon(IconlyLight.profile),
+            activeIcon: const Icon(IconlyBold.profile),
+            label: 'profile'.tr(),
           ),
         ],
       ),

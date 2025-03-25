@@ -1,13 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
-import 'package:iconly/iconly.dart';
 
 import '../../../core/theme/colors.dart';
 import '../widgets/attendance_history_list.dart';
 import '../widgets/monthly_overview_card.dart';
 import '../widgets/status_summary_row.dart';
 import '../widgets/today_checkin_card.dart';
+import '../widgets/total_hours.dart';
 import '../widgets/weekly_bar_chart.dart';
 import '../widgets/attendance_filter_bar.dart';
 
@@ -23,9 +23,11 @@ class _AttendancePageState extends State<AttendancePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.appBarBackground,
+        backgroundColor: isDarkMode ? Colors.black : AppColors.appBarBackground,
         elevation: 0,
         title: Row(
           children: [
@@ -35,16 +37,15 @@ class _AttendancePageState extends State<AttendancePage> {
             ),
             const SizedBox(width: 8),
             Text(
-              "Davomat",
+              "attendance".tr(),
               style: TextStyle(
-                color: AppColors.appBarLogoText,
+                color: isDarkMode ? Colors.white : AppColors.appBarLogoText,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
       ),
-
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -56,6 +57,10 @@ class _AttendancePageState extends State<AttendancePage> {
               ),
               const Gap(16),
               const TodayCheckInCard(),
+              const Gap(16),
+              const TotalWorkHoursCard(),
+
+
               const Gap(24),
               const MonthlyOverviewCard(),
               const Gap(24),
@@ -64,6 +69,7 @@ class _AttendancePageState extends State<AttendancePage> {
               const StatusSummaryRow(),
               const Gap(24),
               const AttendanceHistoryList(),
+
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vision/core/theme/colors.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class StatusSummaryRow extends StatelessWidget {
   const StatusSummaryRow({super.key});
@@ -9,9 +10,9 @@ class StatusSummaryRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: const [
-        StatusBox(label: 'Kelgan', color: AppColors.green, count: 20),
-        StatusBox(label: 'Kech', color: AppColors.orange, count: 2),
-        StatusBox(label: 'Kelmagan', color: AppColors.red, count: 2),
+        StatusBox(label: 'present', color: AppColors.green, count: 20),
+        StatusBox(label: 'late', color: AppColors.orange, count: 2),
+        StatusBox(label: 'absent', color: AppColors.red, count: 2),
       ],
     );
   }
@@ -33,11 +34,14 @@ class StatusBox extends StatelessWidget {
           radius: 22,
           child: Text(
             '$count',
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(height: 6),
-        Text(label),
+        Text(label.tr()), // ✅ Tarjima qilingan label
       ],
     );
   }

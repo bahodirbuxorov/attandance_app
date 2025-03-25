@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:gap/gap.dart';
 import 'package:vision/features/profile/presentation/widgets/info_card.dart';
 import 'package:vision/features/profile/presentation/widgets/profile_header.dart';
 import 'package:vision/features/profile/presentation/widgets/settings.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../core/theme/colors.dart';
 
@@ -12,9 +12,11 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.appBarBackground,
+        backgroundColor: isDarkMode ? Colors.black : AppColors.appBarBackground,
         elevation: 0,
         title: Row(
           children: [
@@ -24,16 +26,15 @@ class ProfilePage extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              "Mening hisobim",
+              "profile".tr(),
               style: TextStyle(
-                color: AppColors.appBarLogoText,
+                color: isDarkMode ? Colors.white : AppColors.appBarLogoText,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
       ),
-
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),

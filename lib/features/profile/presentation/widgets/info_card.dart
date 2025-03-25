@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ProfileInfoCard extends StatelessWidget {
   const ProfileInfoCard({super.key});
@@ -13,11 +14,11 @@ class ProfileInfoCard extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            _infoTile("Telefon raqam", "+998 90 123 45 67"),
+            _infoTile("phone".tr(), "+998 90 123 45 67"),
             const Divider(),
-            _infoTile("Email", "akmal@company.uz"),
+            _infoTile("email".tr(), "akmal@company.uz"),
             const Divider(),
-            _infoTile("Ish boshlagan sana", "12.01.2023"),
+            _infoTile("start_date".tr(), "12.01.2023"),
           ],
         ),
       ),

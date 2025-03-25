@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginForm extends HookWidget {
   const LoginForm({super.key});
@@ -40,14 +41,14 @@ class LoginForm extends HookWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Xush kelibsiz",
+                    'welcome'.tr(),
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const Gap(8),
                   Text(
-                    "Iltimos, tizimga kirish uchun ma'lumotlaringizni kiriting.",
+                    'login_instruction'.tr(),
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).hintColor,
                     ),
@@ -57,7 +58,7 @@ class LoginForm extends HookWidget {
                   IntlPhoneField(
                     controller: phoneController,
                     decoration: InputDecoration(
-                      labelText: 'Telefon raqam',
+                      labelText: 'phone_number'.tr(),
                       filled: true,
                       fillColor: Theme.of(context).colorScheme.surfaceVariant,
                       border: OutlineInputBorder(
@@ -69,7 +70,7 @@ class LoginForm extends HookWidget {
                     keyboardType: TextInputType.phone,
                     validator: (value) =>
                     value == null || value.completeNumber.isEmpty
-                        ? 'Telefon raqam kerak'
+                        ? 'phone_required'.tr()
                         : null,
                   ),
                   const Gap(16),
@@ -77,7 +78,7 @@ class LoginForm extends HookWidget {
                     controller: passwordController,
                     obscureText: isObscured.value,
                     decoration: InputDecoration(
-                      labelText: 'Parol',
+                      labelText: 'password'.tr(),
                       filled: true,
                       fillColor: Theme.of(context).colorScheme.surfaceVariant,
                       border: OutlineInputBorder(
@@ -96,7 +97,9 @@ class LoginForm extends HookWidget {
                       ),
                     ),
                     validator: (value) =>
-                    value == null || value.isEmpty ? 'Parolni kiriting' : null,
+                    value == null || value.isEmpty
+                        ? 'password_required'.tr()
+                        : null,
                   ),
                   const Gap(24),
                   SizedBox(
@@ -110,12 +113,13 @@ class LoginForm extends HookWidget {
 
                           // TODO: backend orqali login tekshirish
 
-                          await Future.delayed(const Duration(seconds: 1));
+                          await Future.delayed(
+                              const Duration(seconds: 1));
                           isLoading.value = false;
 
                           // Muvaffaqiyatli login bo‘lsa, home sahifaga yo‘naltirish
                           if (context.mounted) {
-                            context.go('/app'); // 👈 Endi navbarli sahifaga yo‘naltiradi
+                            context.go('/app');
                           }
                         }
                       },
@@ -131,7 +135,7 @@ class LoginForm extends HookWidget {
                       ),
                       child: isLoading.value
                           ? const CircularProgressIndicator.adaptive()
-                          : const Text("Kirish"),
+                          : Text("login".tr()),
                     ),
                   ),
                 ],

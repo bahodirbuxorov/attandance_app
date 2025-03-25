@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:go_router/go_router.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../core/theme/colors.dart';
 
@@ -12,35 +13,35 @@ class SettingsSection extends StatelessWidget {
     return Column(
       children: [
         _settingItem(
+          context: context,
           icon: IconlyLight.profile,
-          title: 'Profilni tahrirlash',
-          onTap: () {
-
-          },
+          title: 'edit_profile'.tr(),
+          onTap: () {},
         ),
         const Divider(height: 1),
         _settingItem(
+          context: context,
           icon: IconlyLight.message,
-          title: 'Xabar yuborish',
+          title: 'send_message'.tr(),
           onTap: () {
             context.push('/settings');
           },
         ),
         const Divider(height: 1),
         _settingItem(
+          context: context,
           icon: IconlyLight.setting,
-          title: 'Sozlamalar',
+          title: 'settings'.tr(),
           onTap: () {
             context.push('/settings');
           },
         ),
         const Divider(height: 1),
         _settingItem(
+          context: context,
           icon: IconlyLight.logout,
-          title: 'Chiqish',
-          onTap: () {
-
-          },
+          title: 'logout'.tr(),
+          onTap: () {},
           color: Colors.red,
         ),
       ],
@@ -48,6 +49,7 @@ class SettingsSection extends StatelessWidget {
   }
 
   Widget _settingItem({
+    required BuildContext context,
     required IconData icon,
     required String title,
     required VoidCallback onTap,
@@ -55,7 +57,12 @@ class SettingsSection extends StatelessWidget {
   }) {
     return ListTile(
       leading: Icon(icon, color: color ?? AppColors.primaryGreen),
-      title: Text(title, style: TextStyle(color: color ?? Colors.black)),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          color: color ?? Theme.of(context).textTheme.bodyMedium?.color,
+        ),
+      ),
       onTap: onTap,
     );
   }

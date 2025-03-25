@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RecentAttendanceList extends StatelessWidget {
   const RecentAttendanceList({super.key});
@@ -33,19 +34,24 @@ class RecentAttendanceList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Oxirgi davomadlar",
-            style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          "recent_attendance".tr(),
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         const SizedBox(height: 12),
         ...recent.map(
-              (entry) => Card(
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          (entry) => Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
             margin: const EdgeInsets.only(bottom: 12),
             elevation: 2,
             child: ListTile(
               leading: Icon(entry['status'], color: entry['color'], size: 28),
               title: Text(entry['date']),
-              subtitle: Text("Kelgan: ${entry['in']}, Chiqqan: ${entry['out']}"),
+              subtitle: Text(
+                "${'checked_in_at'.tr()}: ${entry['in']}, ${'checked_out_at'.tr()}: ${entry['out']}",
+              ),
             ),
           ),
         ),

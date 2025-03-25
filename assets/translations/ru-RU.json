@@ -1,0 +1,72 @@
+{
+  "home": "Главная",
+  "attendance": "Посещаемость",
+
+
+  "login": "Войти",
+  "welcome": "Добро пожаловать",
+  "login_instruction": "Пожалуйста, введите свои данные для входа.",
+  "phone_number": "Номер телефона",
+  "phone_required": "Номер телефона обязателен",
+  "password": "Пароль",
+  "password_required": "Введите пароль",
+
+  "attendance_summary": "Статистика посещаемости",
+  "present": "Присутствовал",
+  "late": "Опоздал",
+  "absent": "Отсутствовал",
+
+  "recent_attendance": "Последние посещения",
+  "checked_in_at": "Пришел",
+  "checked_out_at": "Ушел",
+
+  "today_status": "Статус на сегодня",
+  "checked_in_time": "Вы пришли в 08:57",
+  "not_checked_out": "Выход не зафиксирован",
+
+  "profile": "Мой профиль",
+  "position": "Главный бухгалтер",
+  "region": "Ташкентская область",
+
+  "phone": "Телефон",
+  "email": "Эл. почта",
+  "start_date": "Дата начала работы",
+
+  "settings": "Настройки",
+  "app_settings": "Настройки приложения",
+  "notifications": "Уведомления",
+  "enabled": "Включено",
+  "dark_mode": "Темный режим",
+  "account": "Аккаунт",
+  "language": "Язык",
+  "privacy_policy": "Политика конфиденциальности",
+  "help": "Помощь",
+  "edit_profile": "Редактировать профиль",
+  "send_message": "Отправить сообщение",
+  "logout": "Выйти",
+
+  "notification_list": "Уведомления",
+  "notif_late": "Опоздание на работу",
+  "notif_late_detail": "22 марта вы пришли в 09:20.",
+  "notif_exit_missing": "Не зафиксирован выход",
+  "notif_exit_detail": "Сегодня вы не зафиксировали выход.",
+  "notif_new_policy": "Новая политика",
+  "notif_new_policy_detail": "Ознакомьтесь с новой политикой компании.",
+
+  "edit": "Редактировать",
+  "today": "Сегодня",
+  "this_week": "На этой неделе",
+  "this_month": "В этом месяце",
+  "all": "Все",
+  "monthly_overview": "Ежемесячный обзор",
+  "working_days": "Рабочие дни",
+  "weekly_attendance": "Посещаемость за 7 дней",
+
+  "mon": "Пн",
+  "tue": "Вт",
+  "wed": "Ср",
+  "thu": "Чт",
+  "fri": "Пт",
+  "sat": "Сб",
+  "sun": "Вс"
+}

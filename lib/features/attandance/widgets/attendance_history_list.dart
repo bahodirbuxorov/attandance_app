@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:gap/gap.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AttendanceHistoryList extends StatelessWidget {
   const AttendanceHistoryList({super.key});
@@ -34,8 +35,10 @@ class AttendanceHistoryList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Oxirgi davomadlar",
-            style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          "recent_attendance".tr(),
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         const Gap(12),
         ...history.map(
               (entry) => Card(
@@ -47,7 +50,7 @@ class AttendanceHistoryList extends StatelessWidget {
               leading: Icon(entry['status'], color: entry['color'], size: 28),
               title: Text(entry['date']),
               subtitle: Text(
-                "Kelgan: ${entry['in']}, Chiqqan: ${entry['out']}",
+                "${'checked_in_at'.tr()}: ${entry['in']}, ${'checked_out_at'.tr()}: ${entry['out']}",
               ),
             ),
           ),

@@ -1,0 +1,71 @@
+{
+  "home": "Асосий",
+  "attendance": "Давомат",
+
+  "login": "Кириш",
+  "welcome": "Хуш келибсиз",
+  "login_instruction": "Илтимос, тизимга кириш учун маълумотларингизни киритинг.",
+  "phone_number": "Телефон рақами",
+  "phone_required": "Телефон рақами талаб қилинади",
+  "password": "Парол",
+  "password_required": "Илтимос, паролни киритинг",
+
+  "attendance_summary": "Давомат статистикаси",
+  "present": "Келган",
+  "late": "Кеч қолган",
+  "absent": "Келмаган",
+
+  "recent_attendance": "Охирги давоматлар",
+  "checked_in_at": "Келган",
+  "checked_out_at": "Чиққан",
+
+  "today_status": "Бугунги ҳолат",
+  "checked_in_time": "08:57 да ишга келдингиз",
+  "not_checked_out": "Чиқиш белгиланмаган",
+
+  "profile": "Менинг ҳисобим",
+  "position": "Бош ҳисобчи",
+  "region": "Тошкент вилояти",
+
+  "phone": "Телефон рақами",
+  "email": "Электрон почта",
+  "start_date": "Иш бошлаган сана",
+
+  "settings": "Созламалар",
+  "app_settings": "Илова созламалари",
+  "notifications": "Билдиришномалар",
+  "enabled": "Ёқилган",
+  "dark_mode": "Тунги режим",
+  "account": "Ҳисоб",
+  "language": "Тилингиз",
+  "privacy_policy": "Махфийлик сиёсати",
+  "help": "Ёрдам",
+  "edit_profile": "Профилни таҳрирлаш",
+  "send_message": "Хабар юбориш",
+  "logout": "Чиқиш",
+
+  "notification_list": "Билдиришномалар",
+  "notif_late": "Ишга кеч келиш",
+  "notif_late_detail": "22-март куни 09:20 да ишга келдингиз.",
+  "notif_exit_missing": "Чиқиш белгиланмаган",
+  "notif_exit_detail": "Бугун чиқиш вақтини белгиламагансиз.",
+  "notif_new_policy": "Янги эълон",
+  "notif_new_policy_detail": "Янги компания сиёсати билан танишинг.",
+
+  "edit": "Таҳрирлаш",
+  "today": "Бугун",
+  "this_week": "Ушбу ҳафта",
+  "this_month": "Ушбу ой",
+  "all": "Ҳаммаси",
+  "monthly_overview": "Ойлик умумий кўриниш",
+  "working_days": "Жами иш кунлари",
+  "weekly_attendance": "Охирги 7 кунлик давомат",
+
+  "mon": "Да",
+  "tue": "Се",
+  "wed": "Чо",
+  "thu": "Па",
+  "fri": "Жу",
+  "sat": "Ша",
+  "sun": "Як"
+}

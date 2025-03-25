@@ -1,0 +1,75 @@
+{
+  "home": "Asosiy",
+  "attendance": "Davomat",
+
+
+  "login": "Kirish",
+  "welcome": "Xush kelibsiz",
+  "login_instruction": "Iltimos, tizimga kirish uchun ma'lumotlaringizni kiriting.",
+  "phone_number": "Telefon raqam",
+  "phone_required": "Telefon raqam kerak",
+  "password": "Parol",
+  "password_required": "Parolni kiriting",
+
+  "attendance_summary": "Davomat statistikasi",
+  "present": "Kelgan",
+  "late": "Kech qolgan",
+  "absent": "Kelmagan",
+
+  "recent_attendance": "Oxirgi davomadlar",
+  "checked_in_at": "Kelgan",
+  "checked_out_at": "Chiqqan",
+
+  "today_status": "Bugungi holat",
+  "checked_in_time": "08:57 da ishga keldingiz",
+  "not_checked_out": "Chiqish belgilanmagan",
+
+  "profile": "Mening hisobim",
+  "position": "Bosh hisobchi",
+  "region": "Toshkent viloyati",
+
+  "phone": "Telefon raqam",
+  "email": "Email",
+  "start_date": "Ish boshlagan sana",
+  "total_work_hours": "Umumiy ish soatlari",
+  "total_working_days": "Jami ish kunlari",
+
+
+  "settings": "Sozlamalar",
+  "app_settings": "Ilova sozlamalari",
+  "notifications": "Bildirishnomalar",
+  "enabled": "Yoqilgan",
+  "dark_mode": "Tungi rejim",
+  "account": "Hisob",
+  "language": "Tilingiz",
+  "privacy_policy": "Maxfiylik siyosati",
+  "help": "Yordam",
+  "edit_profile": "Profilni tahrirlash",
+  "send_message": "Xabar yuborish",
+  "logout": "Chiqish",
+
+  "notification_list": "Bildirishnomalar",
+  "notif_late": "Ishga kech kelganlik",
+  "notif_late_detail": "22-mart kuni 09:20 da ishga keldingiz.",
+  "notif_exit_missing": "Chiqish belgilanmagan",
+  "notif_exit_detail": "Bugun chiqish vaqtingiz belgilanmagan.",
+  "notif_new_policy": "Yangi e’lon",
+  "notif_new_policy_detail": "Yangi kompaniya siyosati bilan tanishing.",
+
+  "edit": "Tahrirlash",
+  "today": "Bugun",
+  "this_week": "Bu hafta",
+  "this_month": "Bu oy",
+  "all": "Hammasi",
+  "monthly_overview": "Oylik umumiy ko'rinish",
+  "working_days": "Jami ish kunlari",
+  "weekly_attendance": "Oxirgi 7 kunlik davomad",
+
+  "mon": "Du",
+  "tue": "Se",
+  "wed": "Ch",
+  "thu": "Pa",
+  "fri": "Ju",
+  "sat": "Sh",
+  "sun": "Ya"
+}
