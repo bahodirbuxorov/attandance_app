@@ -23,7 +23,7 @@ class StatusBox extends StatelessWidget {
   final Color color;
   final int count;
 
-  const StatusBox({required this.label, required this.color, required this.count});
+  const StatusBox({super.key, required this.label, required this.color, required this.count});
 
   @override
   Widget build(BuildContext context) {

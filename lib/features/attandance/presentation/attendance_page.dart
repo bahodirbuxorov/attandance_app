@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../core/theme/colors.dart';
+import '../widgets/absent_days_card.dart';
+
 import '../widgets/attendance_history_list.dart';
+import '../widgets/average_checkin_checkout_card.dart';
+import '../widgets/monthly_attendance_line_chart.dart';
 import '../widgets/monthly_overview_card.dart';
 import '../widgets/status_summary_row.dart';
 import '../widgets/today_checkin_card.dart';
@@ -31,10 +35,7 @@ class _AttendancePageState extends State<AttendancePage> {
         elevation: 0,
         title: Row(
           children: [
-            Image.asset(
-              'assets/logo/logo.png',
-              height: 32,
-            ),
+            Image.asset('assets/logo/logo.png', height: 32),
             const SizedBox(width: 8),
             Text(
               "attendance".tr(),
@@ -60,16 +61,21 @@ class _AttendancePageState extends State<AttendancePage> {
               const Gap(16),
               const TotalWorkHoursCard(),
 
-
               const Gap(24),
               const MonthlyOverviewCard(),
+              const Gap(24),
+              MonthlyLineChartWithFilters(),
+              const Gap(24),
+              AverageCheckInOutCard(),
+              const Gap(24),
+              AbsentDaysCard(),
               const Gap(24),
               const WeeklyBarChart(),
               const Gap(24),
               const StatusSummaryRow(),
               const Gap(24),
-              const AttendanceHistoryList(),
 
+              const AttendanceHistoryList(),
             ],
           ),
         ),

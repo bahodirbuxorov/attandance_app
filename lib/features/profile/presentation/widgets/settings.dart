@@ -15,8 +15,10 @@ class SettingsSection extends StatelessWidget {
         _settingItem(
           context: context,
           icon: IconlyLight.profile,
-          title: 'edit_profile'.tr(),
-          onTap: () {},
+          title: 'profile'.tr(),
+          onTap: () {
+            context.push('/edit-profile');
+          },
         ),
         const Divider(height: 1),
         _settingItem(

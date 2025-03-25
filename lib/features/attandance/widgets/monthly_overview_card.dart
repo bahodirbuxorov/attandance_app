@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -29,6 +31,8 @@ class MonthlyOverviewCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
+              // ignore: duplicate_ignore
+              // ignore: deprecated_member_use
               color: isDark ? Colors.black54 : Colors.blue.withOpacity(0.1),
               blurRadius: 20,
               offset: const Offset(0, 8),

@@ -1,9 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vision/features/notifications/presentation/notification_page.dart';
-import 'package:vision/features/profile/presentation/settings_page.dart';
+import 'package:vision/features/profile/presentation/pages/settings_page.dart';
 import '../../../features/auth/presentation/auth/login_page.dart';
 import '../../../features/home/presentation/home_page.dart';
+import '../../features/profile/presentation/pages/edit_profile_page.dart';
 import '../widgets/root_navbar.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -29,6 +30,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/settings',
         builder: (context, state) => const SettingsPage(),
+      ),
+
+      GoRoute(
+        path: '/edit-profile',
+        builder: (context, state) => const  ProfileInfoPage(),
       ),
     ],
   );

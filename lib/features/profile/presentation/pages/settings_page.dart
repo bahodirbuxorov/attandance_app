@@ -5,7 +5,7 @@ import 'package:iconly/iconly.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:vision/core/utils/shared_prefs.dart';
-import '../../../../core/theme/theme_provider.dart';
+import '../../../../../core/theme/theme_provider.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});

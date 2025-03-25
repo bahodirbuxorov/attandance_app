@@ -5,7 +5,7 @@ import 'package:vision/features/profile/presentation/widgets/profile_header.dart
 import 'package:vision/features/profile/presentation/widgets/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import '../../../core/theme/colors.dart';
+import '../../../../core/theme/colors.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

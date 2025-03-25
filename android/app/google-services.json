@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "599867390352",
+    "project_id": "univer-634f2",
+    "storage_bucket": "univer-634f2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599867390352:android:7eddfecf9b945e01859b15",
+        "android_client_info": {
+          "package_name": "com.example.vision"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYs1FRZAZgbLf5n_K95spHMvTFnIXQd_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

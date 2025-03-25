@@ -20,6 +20,15 @@
   "checked_in_at": "Kelgan",
   "checked_out_at": "Chiqqan",
 
+  "monthly_attendance_chart": "Oylik davomad grafigi",
+  "days": "kun",
+  "average_check_time": "O‘rtacha kelish vaqti",
+  "average_checkout_time": "O‘rtacha chiqish vaqti",
+
+  "total_work_hours": "Jami ish soatlari",
+  "absent_days": "Kelmagan kunlar",
+  "no_absent_days": "🎉 Hech qanday kelmagan kunlar yo'q!",
+
   "today_status": "Bugungi holat",
   "checked_in_time": "08:57 da ishga keldingiz",
   "not_checked_out": "Chiqish belgilanmagan",
@@ -31,7 +40,7 @@
   "phone": "Telefon raqam",
   "email": "Email",
   "start_date": "Ish boshlagan sana",
-  "total_work_hours": "Umumiy ish soatlari",
+
   "total_working_days": "Jami ish kunlari",
 
 

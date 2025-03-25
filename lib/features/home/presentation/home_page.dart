@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:vision/features/home/presentation/widgets/attendance_summary.dart';
-import 'package:vision/features/home/presentation/widgets/home_header.dart';
-import 'package:vision/features/home/presentation/widgets/recent_attendance.dart';
 import 'package:vision/features/home/presentation/widgets/today_status.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/theme/colors.dart';
+import '../../attandance/widgets/attendance_history_list.dart';
+import '../../attandance/widgets/average_checkin_checkout_card.dart';
+import '../../profile/presentation/widgets/profile_header.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -46,13 +47,15 @@ class HomePage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: const [
-              HomeHeader(),
+              ProfileHeader(),
               Gap(20),
               TodayStatusCard(),
               Gap(20),
+              AverageCheckInOutCard(),
+              Gap(20),
               AttendanceSummaryCard(),
               Gap(20),
-              RecentAttendanceList(),
+              AttendanceHistoryList(),
             ],
           ),
         ),

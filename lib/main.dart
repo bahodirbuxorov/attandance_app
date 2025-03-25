@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'app.dart';
-import 'core/localization/localization_setup.dart';
 import 'core/utils/shared_prefs.dart';
 
 void main() async {
