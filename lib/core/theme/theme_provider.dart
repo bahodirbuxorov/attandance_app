@@ -4,12 +4,13 @@ import '../utils/shared_prefs.dart';
 final themeProvider = StateNotifierProvider<ThemeNotifier, bool>((ref) => ThemeNotifier());
 
 class ThemeNotifier extends StateNotifier<bool> {
-  ThemeNotifier() : super(false) {
+  ThemeNotifier() : super(true) {
     _loadTheme();
   }
 
   void _loadTheme() async {
-    state = await SharedPrefs.loadTheme();
+    final savedTheme = await SharedPrefs.loadTheme();
+    state = savedTheme ?? true;
   }
 
   void toggleTheme() {

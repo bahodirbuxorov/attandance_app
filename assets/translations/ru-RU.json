@@ -80,5 +80,18 @@
   "thu": "Чт",
   "fri": "Пт",
   "sat": "Сб",
-  "sun": "Вс"
+  "sun": "Вс",
+
+  "tashkent": "Ташкент",
+  "andijan": "Андижан",
+  "fergana": "Фергана",
+  "namangan": "Наманган",
+  "sirdarya": "Сырдарья",
+  "jizzakh": "Джизак",
+  "samarkand": "Самарканд",
+  "bukhara": "Бухара",
+  "navoiy": "Навои",
+  "kashkadarya": "Кашкадарья",
+  "surkhandarya": "Сурхандарья",
+  "karakalpakstan": "Каракалпакстан"
 }

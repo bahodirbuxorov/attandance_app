@@ -64,5 +64,18 @@
   "thu": "Thu",
   "fri": "Fri",
   "sat": "Sat",
-  "sun": "Sun"
+  "sun": "Sun",
+
+  "tashkent": "Tashkent",
+  "andijan": "Andijan",
+  "fergana": "Fergana",
+  "namangan": "Namangan",
+  "sirdarya": "Sirdarya",
+  "jizzakh": "Jizzakh",
+  "samarkand": "Samarkand",
+  "bukhara": "Bukhara",
+  "navoiy": "Navoiy",
+  "kashkadarya": "Kashkadarya",
+  "surkhandarya": "Surkhandarya",
+  "karakalpakstan": "Karakalpakstan"
 }

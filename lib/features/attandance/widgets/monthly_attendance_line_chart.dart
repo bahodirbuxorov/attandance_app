@@ -21,6 +21,7 @@ class _MonthlyLineChartWithFiltersState extends State<MonthlyLineChartWithFilter
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final filteredData = allData.take(selectedDays).toList();
+    final List<String> weekdays = ['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'];
 
     return Animate(
       effects: const [FadeEffect(), SlideEffect(begin: Offset(0, 0.1))],
@@ -50,16 +51,15 @@ class _MonthlyLineChartWithFiltersState extends State<MonthlyLineChartWithFilter
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// 📊 Title & Icon
             Row(
               children: [
                 Container(
                   padding: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white10,
+                    color: isDark ? Colors.white10 : Colors.blue.shade100,
                   ),
-                  child: const Icon(Icons.show_chart, color: Colors.white),
+                  child: Icon(Icons.show_chart, color: isDark ? Colors.white : Colors.blueAccent),
                 ),
                 const SizedBox(width: 12),
                 Text(
@@ -72,8 +72,6 @@ class _MonthlyLineChartWithFiltersState extends State<MonthlyLineChartWithFilter
               ],
             ),
             const SizedBox(height: 16),
-
-            /// 🎚️ Filter Chips
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [7, 15, 30].map((e) {
@@ -94,39 +92,84 @@ class _MonthlyLineChartWithFiltersState extends State<MonthlyLineChartWithFilter
               }).toList(),
             ),
             const SizedBox(height: 16),
-
-            /// 📈 Line Chart
             SizedBox(
               height: 220,
               child: LineChart(
                 LineChartData(
                   gridData: FlGridData(show: true, drawVerticalLine: false),
+                  lineTouchData: LineTouchData(
+                    enabled: true,
+                    touchTooltipData: LineTouchTooltipData(
+                      getTooltipColor: (spots) => isDark ? Colors.black87 : Colors.white,
+
+                      tooltipRoundedRadius: 10,
+                      getTooltipItems: (spots) {
+                        return spots.map((spot) {
+                          return LineTooltipItem(
+                            '${spot.y.toStringAsFixed(1)} soat',
+                            TextStyle(
+                              color: isDark ? Colors.white : Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          );
+                        }).toList();
+                      },
+                    ),
+                  ),
                   titlesData: FlTitlesData(
                     bottomTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: true,
                         reservedSize: 28,
                         getTitlesWidget: (value, _) {
-                          return Text(
-                            '${value.toInt() + 1}',
-                            style: TextStyle(
-                              color: isDark ? Colors.white70 : Colors.grey.shade800,
-                              fontSize: 10,
+                          int index = value.toInt();
+                          if (index >= filteredData.length) return const SizedBox.shrink();
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 4.0),
+                            child: Text(
+                              weekdays[index % 7],
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: isDark ? Colors.white60 : Colors.grey.shade700,
+                              ),
                             ),
                           );
                         },
-                        interval: 1,
+                        interval: (selectedDays / 6).floorToDouble(),
                       ),
                     ),
                     leftTitles: AxisTitles(
-                      sideTitles: SideTitles(showTitles: true, reservedSize: 30),
+                      axisNameWidget: Padding(
+                        padding: const EdgeInsets.only(bottom: 4.0),
+                        child: Text(
+                          "soat",
+                          style: TextStyle(
+                            color: isDark ? Colors.white70 : Colors.black87,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      axisNameSize: 24,
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        reservedSize: 30,
+                        interval: 1,
+                        getTitlesWidget: (value, _) => Text(
+                          value.toStringAsFixed(0),
+                          style: TextStyle(
+                            color: isDark ? Colors.white60 : Colors.grey.shade700,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
                     ),
                     topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                     rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                   ),
                   borderData: FlBorderData(show: false),
                   minX: 0,
-                  maxX: (selectedDays - 1).toDouble(),
+                  maxX: (filteredData.length - 1).toDouble(),
                   minY: 6,
                   maxY: 12,
                   lineBarsData: [
@@ -154,7 +197,7 @@ class _MonthlyLineChartWithFiltersState extends State<MonthlyLineChartWithFilter
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

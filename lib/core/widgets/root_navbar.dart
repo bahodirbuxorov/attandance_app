@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import '../../features/attandance/presentation/attendance_page.dart';
+// Ekranlar (yo'lingizga qarab import qiling)
+import '../../features/admin/presentation/pages/admin_dashboard_page.dart';
 import '../../features/home/presentation/home_page.dart';
+import '../../features/attandance/presentation/attendance_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 
 class RootNavbar extends StatefulWidget {
@@ -16,34 +18,31 @@ class RootNavbar extends StatefulWidget {
 class _RootNavbarState extends State<RootNavbar> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = const [
-    HomePage(),
-    AttendancePage(),
-    ProfilePage(),
-  ];
+
+  bool isAdmin = true;
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> screens = [
+      const HomePage(),
+      const AttendancePage(),
+      const ProfilePage(),
+      if (isAdmin) const AdminDashboardPage(), // ✅ Admin page
+    ];
+
     return Scaffold(
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 300),
         transitionBuilder: (Widget child, Animation<double> animation) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          );
+          return FadeTransition(opacity: animation, child: child);
         },
-        child: _screens[_currentIndex],
+        child: screens[_currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: (index) => setState(() => _currentIndex = index),
         items: [
           BottomNavigationBarItem(
             icon: const Icon(IconlyLight.home),
@@ -60,32 +59,14 @@ class _RootNavbarState extends State<RootNavbar> {
             activeIcon: const Icon(IconlyBold.profile),
             label: 'profile'.tr(),
           ),
+          if (isAdmin)
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.dashboard_customize_outlined),
+              activeIcon: const Icon(Icons.dashboard_customize),
+              label: 'Admin',
+            ),
         ],
       ),
     );
-  }
-}
-
-
-/// Helper widget to rebuild RootNavbar with a new selected tab
-class RootNavbarWithIndex extends StatefulWidget {
-  final int index;
-  const RootNavbarWithIndex({super.key, required this.index});
-
-  @override
-  State<RootNavbarWithIndex> createState() => _RootNavbarWithIndexState();
-}
-
-class _RootNavbarWithIndexState extends State<RootNavbarWithIndex> {
-
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return RootNavbar(); // Or if needed: rebuild based on _currentIndex
   }
 }

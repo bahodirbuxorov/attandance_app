@@ -8,9 +8,9 @@ class SharedPrefs {
     await prefs.setBool('isDarkMode', isDark);
   }
 
-  static Future<bool> loadTheme() async {
+  static Future<bool?> loadTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isDarkMode') ?? false;
+    return prefs.getBool('isDarkMode');
   }
 
   static Future<void> saveLocale(String languageCode, [String? countryCode]) async {
