@@ -140,6 +140,7 @@ class _AttendanceSummaryCardState extends State<AttendanceSummaryCard> with Sing
               // Shimmer if loading
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 500),
+                // 👇 Bu joyni almashtiring:
                 child: isLoading
                     ? const ShimmerLoader(
                   height: 180,
@@ -151,8 +152,9 @@ class _AttendanceSummaryCardState extends State<AttendanceSummaryCard> with Sing
                   key: const ValueKey('piechart'),
                   alignment: Alignment.center,
                   children: [
-                    AspectRatio(
-                      aspectRatio: 1.3,
+                    SizedBox(
+                      height: 180,
+                      width: 180,
                       child: PieChart(
                         PieChartData(
                           pieTouchData: PieTouchData(
@@ -191,7 +193,8 @@ class _AttendanceSummaryCardState extends State<AttendanceSummaryCard> with Sing
                         ),
                       ),
                     ),
-                  ],
+
+                ],
                 ),
               ),
               const SizedBox(height: 20),
